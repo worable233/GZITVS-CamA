@@ -66,7 +66,6 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 Source: "bin\Release\net8.0-windows10.0.19041.0\win-x64\publish\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "bin\Release\net8.0-windows10.0.19041.0\win-x64\publish\*.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 Source: "bin\Release\net8.0-windows10.0.19041.0\win-x64\publish\*.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "bin\Release\net8.0-windows10.0.19041.0\win-x64\publish\*.xml"; DestDir: "{app}"; Flags: ignoreversion
 Source: "bin\Release\net8.0-windows10.0.19041.0\win-x64\publish\*.png"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
 Source: "bin\Release\net8.0-windows10.0.19041.0\win-x64\publish\*.pdb"; DestDir: "{app}"; Flags: ignoreversion
 Source: "bin\Release\net8.0-windows10.0.19041.0\win-x64\publish\*.xaml"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
