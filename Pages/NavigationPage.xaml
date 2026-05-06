@@ -144,61 +144,6 @@
                             </StackPanel>
                         </StackPanel>
 
-                        <!-- 网关设备 -->
-                        <StackPanel Spacing="12">
-                            <TextBlock 
-                                Text="网关设备" 
-                                Style="{StaticResource BodyStrongTextBlockStyle}"
-                                FontSize="14"
-                                Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
-                            <Grid ColumnSpacing="12">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                
-                                <Border Grid.Column="0" 
-                                    Padding="16"
-                                    CornerRadius="12"
-                                    Background="{ThemeResource SubtleFillColorTertiaryBrush}"
-                                    BorderThickness="0">
-                                    <HyperlinkButton NavigateUri="https://10.189.108.254/" 
-                                        Padding="0"
-                                        HorizontalAlignment="Stretch"
-                                        HorizontalContentAlignment="Stretch">
-                                        <StackPanel>
-                                            <TextBlock Text="网关 (108.254)" 
-                                                Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                                            <TextBlock Text="核心网络出口" 
-                                                Style="{StaticResource CaptionTextBlockStyle}"
-                                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                                FontSize="11"/>
-                                        </StackPanel>
-                                    </HyperlinkButton>
-                                </Border>
-                                
-                                <Border Grid.Column="1" 
-                                    Padding="16"
-                                    CornerRadius="12"
-                                    Background="{ThemeResource SubtleFillColorTertiaryBrush}"
-                                    BorderThickness="0">
-                                    <HyperlinkButton NavigateUri="http://10.189.122.190/" 
-                                        Padding="0"
-                                        HorizontalAlignment="Stretch"
-                                        HorizontalContentAlignment="Stretch">
-                                        <StackPanel>
-                                            <TextBlock Text="网关 (122.190)" 
-                                                Style="{StaticResource BodyStrongTextBlockStyle}"/>
-                                            <TextBlock Text="备用网络出口" 
-                                                Style="{StaticResource CaptionTextBlockStyle}"
-                                                Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                                FontSize="11"/>
-                                        </StackPanel>
-                                    </HyperlinkButton>
-                                </Border>
-                            </Grid>
-                        </StackPanel>
-
                         <!-- 安全运维 -->
                         <StackPanel Spacing="12">
                             <TextBlock 

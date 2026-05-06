@@ -53,6 +53,12 @@
                         <muxc:FontIcon Glyph="&#xE774;"/>
                     </muxc:NavigationViewItem.Icon>
                 </muxc:NavigationViewItem>
+
+                <muxc:NavigationViewItem Content="诊断" Tag="NetworkCheck">
+                    <muxc:NavigationViewItem.Icon>
+                        <muxc:FontIcon Glyph="&#xE909;"/>
+                    </muxc:NavigationViewItem.Icon>
+                </muxc:NavigationViewItem>
             </muxc:NavigationView.MenuItems>
 
             <muxc:NavigationView.FooterMenuItems>

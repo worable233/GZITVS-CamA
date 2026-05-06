@@ -61,6 +61,7 @@ namespace AutoPortal
                     "Login" => PageType.Login,
                     "Navigation" => PageType.Navigation,
                     "Settings" => PageType.Settings,
+                    "NetworkCheck" => PageType.NetworkCheck,
                     _ => PageType.Home
                 };
 

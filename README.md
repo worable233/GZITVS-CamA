@@ -1,6 +1,6 @@
 # AutoPortal
 
-![AutoPortal Logo](Assets/LOGO.svg)
+![AutoPortal Logo](Assets/LOGO.png)
 
 ## 简介
 
@@ -19,10 +19,10 @@ AutoPortal 是一个基于 WinUI 3 的校园网 Portal 自动登录工具，支�
 
 ## 应用截图
 
-![原生应用](Assets/1.svg)
+![原生应用](Assets/1.webp)
 不仅方便登录，更是你的校园助手
 
-![原生应用](Assets/2.svg)
+![原生应用](Assets/2.webp)
 深度适配 Windows 系统，支持深色模式切换
 
 ## 快速开始

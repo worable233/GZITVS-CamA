@@ -16,12 +16,12 @@
         <StackPanel Grid.Row="0" Spacing="8" HorizontalAlignment="Center" MaxWidth="720">
             <TextBlock
                 x:Name="StepTitle"
-                Text="欢迎使用 AutoPortal"
+                Text=""
                 Style="{StaticResource TitleTextBlockStyle}"
                 HorizontalAlignment="Center"/>
             <TextBlock
                 x:Name="StepDescription"
-                Text="自动登录校园网门户系统"
+                Text=""
                 Style="{StaticResource SubtitleTextBlockStyle}"
                 HorizontalAlignment="Center"
                 TextWrapping="Wrap"
