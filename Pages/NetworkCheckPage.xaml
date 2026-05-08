@@ -25,7 +25,7 @@
             </StackPanel>
 
             <Button x:Name="StartButton" Grid.Column="1" Content="开始检测" Padding="28,12" FontSize="14" FontWeight="SemiBold" Click="StartButton_Click" Height="50" Style="{StaticResource AccentButtonStyle}"/>
-            <Button x:Name="CancelButton" Grid.Column="1" Content="取消" Padding="28,12" FontSize="14" FontWeight="SemiBold" Visibility="Collapsed" Click="CancelButton_Click" Height="50"/>
+            <Button x:Name="CancelButton" Grid.Column="1" Content="取消" Padding="28,12" FontSize="14" FontWeight="SemiBold" Visibility="Collapsed" Click="CancelButton_Click" Height="50" Style="{StaticResource AccentButtonStyle}"/>
         </Grid>
 
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
