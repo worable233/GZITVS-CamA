@@ -134,8 +134,10 @@
                             <TextBlock Text="流量统计" Style="{StaticResource BodyStrongTextBlockStyle}" FontSize="16"/>
                         </StackPanel>
                         
-                        <lvc:CartesianChart 
-                            Height="160" 
+                        <lvc:CartesianChart
+                            x:Name="TrafficChart"
+                            Height="280"
+                            Margin="0,0,0,8"
                             Series="{Binding TrafficSeries}"
                             XAxes="{Binding XAxes}"
                             YAxes="{Binding YAxes}"/>

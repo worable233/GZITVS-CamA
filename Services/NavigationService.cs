@@ -9,7 +9,8 @@ namespace AutoPortal.Services
         Login,
         Navigation,
         Settings,
-        NetworkCheck
+        NetworkCheck,
+        Optimization
     }
 
     public class NavigationService
@@ -38,6 +39,7 @@ namespace AutoPortal.Services
                 PageType.Navigation => typeof(Pages.NavigationPage),
                 PageType.Settings => typeof(Pages.SettingsPage),
                 PageType.NetworkCheck => typeof(Pages.NetworkCheckPage),
+                PageType.Optimization => typeof(Pages.OptimizationPage),
                 _ => typeof(Pages.HomePage)
             };
 
@@ -65,6 +67,7 @@ namespace AutoPortal.Services
                 PageType.Navigation => "Navigation",
                 PageType.Settings => "Settings",
                 PageType.NetworkCheck => "NetworkCheck",
+                PageType.Optimization => "Optimization",
                 _ => null
             };
 

@@ -116,30 +116,42 @@ namespace AutoPortal.Pages
         {
             var uploadValues = new ObservableCollection<double>();
             var downloadValues = new ObservableCollection<double>();
-            
+
+            for (int i = 0; i < MaxPoints; i++)
+            {
+                uploadValues.Add(0);
+                downloadValues.Add(0);
+            }
+            _pointCount = MaxPoints;
+
+            var uploadColor = new SKColor(0x00, 0x78, 0xD4);
+            var downloadColor = new SKColor(0x10, 0x7C, 0x10);
+
             _trafficSeries = new ISeries[]
             {
-                new LineSeries<double> 
-                { 
+                new LineSeries<double>
+                {
                     Values = uploadValues,
-                    Name = "上传 (KB/s)", 
-                    Fill = null,
+                    Name = "Upload",
+                    Fill = new SolidColorPaint(uploadColor.WithAlpha(40)),
                     GeometrySize = 0,
-                    Stroke = new SolidColorPaint(new SKColor(0x00, 0x78, 0xD4)) { StrokeThickness = 2 }
+                    Stroke = new SolidColorPaint(uploadColor) { StrokeThickness = 2.5f },
+                    LineSmoothness = 0.4
                 },
-                new LineSeries<double> 
-                { 
+                new LineSeries<double>
+                {
                     Values = downloadValues,
-                    Name = "下载 (KB/s)", 
-                    Fill = null,
+                    Name = "Download",
+                    Fill = new SolidColorPaint(downloadColor.WithAlpha(40)),
                     GeometrySize = 0,
-                    Stroke = new SolidColorPaint(new SKColor(0x10, 0x7C, 0x10)) { StrokeThickness = 2 }
+                    Stroke = new SolidColorPaint(downloadColor) { StrokeThickness = 2.5f },
+                    LineSmoothness = 0.4
                 }
             };
 
             _xAxes = new Axis[] { new Axis { IsVisible = false } };
             _yAxes = new Axis[] { new Axis { MinLimit = 0, IsVisible = false } };
-            
+
             DataContext = this;
         }
 
@@ -216,28 +228,35 @@ namespace AutoPortal.Pages
                 {
                     if (_trafficSeries != null && _trafficSeries.Length >= 2)
                     {
+                        var upValue = Math.Round(upSpeed / 1024, 2);
+                        var downValue = Math.Round(downSpeed / 1024, 2);
+
+                        _uploadBuffer[_bufferIndex] = upValue;
+                        _downloadBuffer[_bufferIndex] = downValue;
+                        _bufferIndex = (_bufferIndex + 1) % MaxPoints;
+                        if (_pointCount < MaxPoints) _pointCount++;
+
                         var uploadSeries = (LineSeries<double>)_trafficSeries[0];
                         var downloadSeries = (LineSeries<double>)_trafficSeries[1];
-                        
-                        if (uploadSeries.Values != null && downloadSeries.Values != null)
-                        {
-                            var upValue = Math.Round(upSpeed / 1024, 2);
-                            var downValue = Math.Round(downSpeed / 1024, 2);
-                            
-                            _uploadBuffer[_bufferIndex] = upValue;
-                            _downloadBuffer[_bufferIndex] = downValue;
-                            _bufferIndex = (_bufferIndex + 1) % MaxPoints;
-                            if (_pointCount < MaxPoints) _pointCount++;
-                            
-                            uploadSeries.Values = GetUploadBufferArray();
-                            downloadSeries.Values = GetDownloadBufferArray();
-                        }
+
+                        uploadSeries.Values = BuildValuesFromBuffer(_uploadBuffer);
+                        downloadSeries.Values = BuildValuesFromBuffer(_downloadBuffer);
+                    }
+
+                    if (_yAxes != null && _yAxes.Length > 0)
+                    {
+                        var upMax = _uploadBuffer.Take(_pointCount).DefaultIfEmpty(0).Max();
+                        var downMax = _downloadBuffer.Take(_pointCount).DefaultIfEmpty(0).Max();
+                        var maxVal = Math.Max(upMax, downMax);
+                        _yAxes[0].MaxLimit = Math.Max(maxVal * 1.4, 100);
                     }
 
                     UploadSpeedText.Text = upSpeedText;
                     DownloadSpeedText.Text = downSpeedText;
                     UploadTotalText.Text = uploadTotalText;
                     DownloadTotalText.Text = downloadTotalText;
+                    ActiveConnectionsText.Text = GetActiveTcpConnections().ToString();
+                    MemoryUsageText.Text = $"{System.Diagnostics.Process.GetCurrentProcess().WorkingSet64 / 1024.0 / 1024.0:F1} MB";
                 });
             }
             catch (Exception ex)
@@ -253,26 +272,15 @@ namespace AutoPortal.Pages
             }
         }
 
-        private double[] GetUploadBufferArray()
+        private ObservableCollection<double> BuildValuesFromBuffer(double[] buffer)
         {
-            var result = new double[_pointCount];
+            var collection = new ObservableCollection<double>();
             for (int i = 0; i < _pointCount; i++)
             {
                 var idx = (_bufferIndex + i) % MaxPoints;
-                result[i] = _uploadBuffer[idx];
+                collection.Add(buffer[idx]);
             }
-            return result;
-        }
-
-        private double[] GetDownloadBufferArray()
-        {
-            var result = new double[_pointCount];
-            for (int i = 0; i < _pointCount; i++)
-            {
-                var idx = (_bufferIndex + i) % MaxPoints;
-                result[i] = _downloadBuffer[idx];
-            }
-            return result;
+            return collection;
         }
 
         private static long GetNetworkBytes(bool upload)

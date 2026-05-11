@@ -56,14 +56,15 @@ namespace AutoPortal
                 var tag = item.Tag?.ToString();
 
                 var pageType = tag switch
-                {
-                    "Home" => PageType.Home,
-                    "Login" => PageType.Login,
-                    "Navigation" => PageType.Navigation,
-                    "Settings" => PageType.Settings,
-                    "NetworkCheck" => PageType.NetworkCheck,
-                    _ => PageType.Home
-                };
+            {
+                "Home" => PageType.Home,
+                "Login" => PageType.Login,
+                "Navigation" => PageType.Navigation,
+                "Settings" => PageType.Settings,
+                "NetworkCheck" => PageType.NetworkCheck,
+                "Optimization" => PageType.Optimization,
+                _ => PageType.Home
+            };
 
                 NavigationService.Instance.NavigateTo(pageType);
             }
