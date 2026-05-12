@@ -130,7 +130,7 @@ dotnet publish -c Release -r win-arm64 --verbosity quiet
 - ✅ `fix: 添加 ARM64 平台的输出路径配置`
 - ✅ `feat: 添加 x86 版本打包支持`
 
-所有更改已推送到 GitHub: https://github.com/worable233/GZITVS_AutoPortal
+所有更改已推送到 GitHub: https://github.com/worable233/GZITVS-CamA
 
 ---
 

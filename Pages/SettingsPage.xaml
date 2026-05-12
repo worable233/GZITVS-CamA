@@ -216,7 +216,7 @@
                             <TextBlock Text="{x:Bind services:AppVersionService.Version, Mode=OneWay}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextWrapping="Wrap"/>
                             <HyperlinkButton
                                 Content="检查更新"
-                                NavigateUri="https://github.com/worable233/GZITVS_AutoPortal/releases"/>
+                                NavigateUri="https://github.com/worable233/GZITVS-CamA/releases"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
