@@ -371,6 +371,25 @@
                     </StackPanel>
                 </Border>
 
+                <!-- 提示卡片 -->
+                <Border
+                    x:Name="TipCard"
+                    Padding="18"
+                    CornerRadius="12"
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    RightTapped="Card_ContextRequested">
+                    <StackPanel Spacing="12">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <FontIcon Glyph="&#xE946;" FontSize="20" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
+                            <TextBlock Text="提示" Style="{StaticResource BodyStrongTextBlockStyle}" FontSize="16"/>
+                        </StackPanel>
+                        
+                        <TextBlock x:Name="TipTextBlock" Text="" TextWrapping="Wrap" Padding="8,0"/>
+                    </StackPanel>
+                </Border>
+
                 <!-- 系统信息卡片 -->
                 <Border
                     x:Name="SystemCard"
@@ -426,28 +445,6 @@
                                 <TextBlock Grid.Column="0" Text="程序版本:" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                                 <TextBlock Grid.Column="1" x:Name="AppVersionText" Text="-" FontWeight="SemiBold"/>
                             </Grid>
-                        </StackPanel>
-                    </StackPanel>
-                </Border>
-
-                <!-- 提示卡片 -->
-                <Border
-                    x:Name="TipCard"
-                    Padding="18"
-                    CornerRadius="12"
-                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                    BorderThickness="1"
-                    RightTapped="Card_ContextRequested">
-                    <StackPanel Spacing="12">
-                        <StackPanel Orientation="Horizontal" Spacing="10">
-                            <FontIcon Glyph="&#xE946;" FontSize="20" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
-                            <TextBlock Text="提示" Style="{StaticResource BodyStrongTextBlockStyle}" FontSize="16"/>
-                        </StackPanel>
-                        
-                        <StackPanel Orientation="Horizontal" Spacing="8" Padding="8">
-                            <FontIcon Glyph="&#xE785;" FontSize="16" Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
-                            <TextBlock x:Name="TipTextBlock" Text="" TextWrapping="Wrap"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
