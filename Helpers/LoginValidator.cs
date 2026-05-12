@@ -48,7 +48,7 @@ namespace AutoPortal.Helpers
 
             if (!_dllAvailable)
             {
-                errorMessage = "Login.dll 不存在，请确保 Login.dll 与 AutoPortal.exe 在同一目录。";
+                errorMessage = "Login.dll 不存在，请确保 Login.dll 与 GZITVSCamA.exe 在同一目录。";
                 return false;
             }
 

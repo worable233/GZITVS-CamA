@@ -17,7 +17,7 @@
         <muxc:TitleBar
             x:Name="TitleBar"
             Grid.Row="0"
-            Title="AutoPortal">
+            Title="GZITVS-CamA">
             <muxc:TitleBar.IconSource>
                 <muxc:FontIconSource Glyph="&#xEC76;"/>
             </muxc:TitleBar.IconSource>

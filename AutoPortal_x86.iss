@@ -1,13 +1,13 @@
-; Inno Setup Script for AutoPortal x86
+; Inno Setup Script for GZITVS-CamA x86
 ; 版本：1.1.2
 ; 发布者：worable
 ; 许可协议：Attribution-NonCommercial-ShareAlike 4.0 International
 
-#define MyAppName "AutoPortal"
+#define MyAppName "GZITVS-CamA"
 #define MyAppVersion "1.1.2"
 #define MyAppPublisher "worable"
 #define MyAppExeName "AutoPortal.exe"
-#define MyAppURL "https://github.com/worable/AutoPortal"
+#define MyAppURL "https://github.com/worable233/GZITVS-CamA"
 
 [Setup]
 ; 基本设置
@@ -30,7 +30,7 @@ UsePreviousAppDir=yes
 
 ; 输出设置
 OutputDir=.{#MyAppName}_Setup_{#MyAppVersion}_x86
-OutputBaseFilename=AutoPortal_v{#MyAppVersion}_Setup_x86
+OutputBaseFilename=GZITVSCamA_v{#MyAppVersion}_Setup_x86
 SetupIconFile=Assets\app.ico
 UninstallDisplayIcon={app}\{#MyAppExeName}
 UninstallDisplayName={#MyAppName}

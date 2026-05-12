@@ -212,7 +212,7 @@
                         </StackPanel>
                         
                         <StackPanel Spacing="6">
-                            <TextBlock Text="AutoPortal" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                            <TextBlock Text="GZITVS-CamA" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
                             <TextBlock Text="{x:Bind services:AppVersionService.Version, Mode=OneWay}" Foreground="{ThemeResource TextFillColorSecondaryBrush}" TextWrapping="Wrap"/>
                             <HyperlinkButton
                                 Content="检查更新"

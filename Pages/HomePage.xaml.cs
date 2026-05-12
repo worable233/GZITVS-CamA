@@ -1,4 +1,4 @@
-using AutoPortal.Helpers;
+﻿using AutoPortal.Helpers;
 using AutoPortal.Models;
 using AutoPortal.Services;
 using LiveChartsCore;
@@ -106,13 +106,13 @@ namespace AutoPortal.Pages
                 // 如果没有读取到提示，使用默认提示
                 if (_tips.Count == 0)
                 {
-                    _tips.Add("欢迎使用 AutoPortal");
+                    _tips.Add("欢迎使用 GZITVS-CamA");
                 }
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"加载提示文件失败：{ex.Message}");
-                _tips.Add("欢迎使用 AutoPortal");
+                _tips.Add("欢迎使用 GZITVS-CamA");
             }
         }
 
@@ -120,7 +120,7 @@ namespace AutoPortal.Pages
         {
             if (_tips.Count == 0)
             {
-                TipTextBlock.Text = "欢迎使用 AutoPortal";
+                TipTextBlock.Text = "欢迎使用 GZITVS-CamA";
                 return;
             }
             

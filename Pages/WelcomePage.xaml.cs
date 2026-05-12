@@ -38,7 +38,7 @@ namespace AutoPortal.Pages
             switch (step)
             {
                 case 0:
-                    StepTitle.Text = "欢迎使用 AutoPortal";
+                    StepTitle.Text = "欢迎使用 GZITVS-CamA";
                     StepDescription.Text = "自动登录校园网门户系统\n让网络连接更省心";
                     NextButton.Content = "开始配置";
                     InputPanel.Visibility = Visibility.Collapsed;
