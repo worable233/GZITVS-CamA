@@ -54,6 +54,10 @@ namespace AutoPortal.Pages
         public Axis[] XAxes => _xAxes ?? Array.Empty<Axis>();
         public Axis[] YAxes => _yAxes ?? Array.Empty<Axis>();
 
+        // 提示相关
+        private readonly List<string> _tips = new();
+        private readonly Random _random = new();
+
         public HomePage()
         {
             InitializeComponent();
@@ -62,6 +66,9 @@ namespace AutoPortal.Pages
             
             // 在构造函数中初始化图表，确保 XAML 绑定时有数据
             InitTrafficChart();
+            
+            // 加载提示
+            LoadTips();
         }
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
@@ -72,6 +79,53 @@ namespace AutoPortal.Pages
             
             // 加载保存的卡片顺序
             LoadCardOrder();
+            
+            // 显示随机提示
+            ShowRandomTip();
+        }
+
+        private void LoadTips()
+        {
+            try
+            {
+                var tipsPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "tips.txt");
+                
+                if (System.IO.File.Exists(tipsPath))
+                {
+                    var lines = System.IO.File.ReadAllLines(tipsPath);
+                    foreach (var line in lines)
+                    {
+                        var trimmed = line.Trim();
+                        if (!string.IsNullOrEmpty(trimmed))
+                        {
+                            _tips.Add(trimmed);
+                        }
+                    }
+                }
+                
+                // 如果没有读取到提示，使用默认提示
+                if (_tips.Count == 0)
+                {
+                    _tips.Add("欢迎使用 AutoPortal");
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"加载提示文件失败：{ex.Message}");
+                _tips.Add("欢迎使用 AutoPortal");
+            }
+        }
+
+        private void ShowRandomTip()
+        {
+            if (_tips.Count == 0)
+            {
+                TipTextBlock.Text = "欢迎使用 AutoPortal";
+                return;
+            }
+            
+            var randomIndex = _random.Next(_tips.Count);
+            TipTextBlock.Text = _tips[randomIndex];
         }
 
         private void Page_Unloaded(object sender, RoutedEventArgs e)
@@ -661,8 +715,8 @@ namespace AutoPortal.Pages
             // 添加分隔线
             menuFlyout.Items.Add(new MenuFlyoutSeparator());
             
-            // 删除菜单项（除了状态卡片和快捷操作卡片、使用说明卡片）
-            if (_selectedCard != StatusCard && _selectedCard != HelpCard)
+            // 删除菜单项（除了状态卡片和快捷操作卡片、提示卡片）
+            if (_selectedCard != StatusCard && _selectedCard != TipCard)
             {
                 var deleteMenuItem = new MenuFlyoutItem 
                 { 
