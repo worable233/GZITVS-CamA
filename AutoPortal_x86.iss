@@ -63,16 +63,16 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 ; 主程序文件
-Source: "bin\Release\net8.0-windows10.0.19041.0\win-x86\publish\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "bin\Release\net8.0-windows10.0.19041.0\win-x86\publish\*.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
-Source: "bin\Release\net8.0-windows10.0.19041.0\win-x86\publish\*.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "bin\Release\net8.0-windows10.0.19041.0\win-x86\publish\*.png"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
-Source: "bin\Release\net8.0-windows10.0.19041.0\win-x86\publish\*.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "bin\Release\net8.0-windows10.0.19041.0\win-x86\publish\*.xaml"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
-Source: "bin\Release\net8.0-windows10.0.19041.0\win-x86\publish\*.pri"; DestDir: "{app}"; Flags: ignoreversion
-Source: "bin\Release\net8.0-windows10.0.19041.0\win-x86\publish\Assets\*"; DestDir: "{app}\Assets"; Flags: ignoreversion
-Source: "bin\Release\net8.0-windows10.0.19041.0\win-x86\publish\Resources\*"; DestDir: "{app}\Resources"; Flags: ignoreversion
-Source: "bin\Release\net8.0-windows10.0.19041.0\win-x86\publish\Pages\*"; DestDir: "{app}\Pages"; Flags: ignoreversion
+Source: "bin\x86\Release\net8.0-windows10.0.19041.0\win-x86\publish\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\x86\Release\net8.0-windows10.0.19041.0\win-x86\publish\*.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+Source: "bin\x86\Release\net8.0-windows10.0.19041.0\win-x86\publish\*.json"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\x86\Release\net8.0-windows10.0.19041.0\win-x86\publish\*.png"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+Source: "bin\x86\Release\net8.0-windows10.0.19041.0\win-x86\publish\*.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\x86\Release\net8.0-windows10.0.19041.0\win-x86\publish\*.xaml"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+Source: "bin\x86\Release\net8.0-windows10.0.19041.0\win-x86\publish\*.pri"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\x86\Release\net8.0-windows10.0.19041.0\win-x86\publish\Assets\*"; DestDir: "{app}\Assets"; Flags: ignoreversion
+Source: "bin\x86\Release\net8.0-windows10.0.19041.0\win-x86\publish\Resources\*"; DestDir: "{app}\Resources"; Flags: ignoreversion
+Source: "bin\x86\Release\net8.0-windows10.0.19041.0\win-x86\publish\Pages\*"; DestDir: "{app}\Pages"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\Assets\app.ico"
